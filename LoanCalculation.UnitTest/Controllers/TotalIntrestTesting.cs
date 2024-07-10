@@ -34,7 +34,7 @@ namespace LoanCalculation.UnitTest.Controller
             );
         }
        [Fact]
-        public void Intrest2()
+        public void IntrestFactMethod()
         {
             // Arrange
             int principleAmount=1000;
@@ -48,6 +48,24 @@ namespace LoanCalculation.UnitTest.Controller
 
             // Assert
             Assert.Equal(Expected, result);
+        }
+
+        [Fact]
+        public void IntrestFactMethodForException()
+        {
+            // Arrange
+            int principleAmount = -1000;
+            double intrest = 2;
+            int loanTermInYears = 1;
+
+            //Act and Assert
+            InterestCalculator interestCalculator = new InterestCalculator();
+            Assert.Throws<ArgumentException>(() =>
+
+                interestCalculator.CalculateTotalIntrest(principleAmount, intrest, loanTermInYears)
+            );
+
+
         }
     }
 }
