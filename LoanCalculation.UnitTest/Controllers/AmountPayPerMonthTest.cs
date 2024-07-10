@@ -24,14 +24,11 @@ namespace LoanCalculation.UnitTest.Controllers
             int termYear = 7;
             double expectedOutput = 21488.1;
             AmountPayPerMonth amountPayPerMonth = new();
-
             //Act
             double amount = amountPayPerMonth.CalculateAmountPayPerMonth(principalAmount, annualInterestRate, termYear);
-
             //Assert
             Assert.Equal(expectedOutput, amount);
         }
-
 
         [Theory]
         [InlineData(-1000, 0, 1)]
@@ -42,6 +39,18 @@ namespace LoanCalculation.UnitTest.Controllers
         public void TestAmountPayPerMonth_exceptions(int principalAmount, double annualInterestRate, int termYear)
         {
             AmountPayPerMonth amountPayPerMonth = new();
+            Assert.Throws<ArgumentException>(() => amountPayPerMonth.CalculateAmountPayPerMonth(principalAmount, annualInterestRate, termYear));
+        }
+
+        [Fact]
+        public void TestAmountPayPerMonth_exceptionsFact()
+        {
+            //arrange
+            int principalAmount = -1000;
+            double annualInterestRate = 0;
+            int termYear=-1;
+            AmountPayPerMonth amountPayPerMonth = new();
+            //act and assert
             Assert.Throws<ArgumentException>(() => amountPayPerMonth.CalculateAmountPayPerMonth(principalAmount, annualInterestRate, termYear));
         }
     }
