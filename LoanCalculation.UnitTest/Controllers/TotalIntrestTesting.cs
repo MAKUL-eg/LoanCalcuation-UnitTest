@@ -34,7 +34,7 @@ namespace LoanCalculation.UnitTest.Controller
             );
         }
        [Fact]
-        public void Intrest2()
+        public void IntrestFactMethod()
         {
             // Arrange
             int principleAmount=1000;
