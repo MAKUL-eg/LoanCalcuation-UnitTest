@@ -17,13 +17,20 @@ namespace LoanCalcuationUnitTest
                 Console.WriteLine("2- Calculate amount to pay per month (simple interest)");
                 Console.WriteLine("3- Exit");
                 Console.WriteLine("Enter your choice");
+
+
                 try
                 {
                     choice = Convert.ToInt32(Console.ReadLine());
 
                     switch (choice)
                     {
-                        case 1: break;
+                        case 1:
+                            ReadInputs(out principleAmount, out interest, out loanTermInYears);
+                            InterestCalculator interestCalculator = new InterestCalculator();
+                            Console.WriteLine($"Total intrest for the principle amount {principleAmount} is {interestCalculator.CalculateTotalIntrest(principleAmount, interest, loanTermInYears)}");
+
+                            break;
                         case 2:
                             ReadInputs(out principleAmount, out interest, out loanTermInYears);
                             AmountPayPerMonth amountPayPerMonth = new();
@@ -35,24 +42,25 @@ namespace LoanCalcuationUnitTest
                             break;
                     }
                 }
-                catch (Exception)
+                catch
                 {
                     Console.WriteLine("Invalid input");
                 }
-
             } while (true);
         }
 
-        public static void ReadInputs(out int principleAmount, out double interest, out int loanTermInYears)
+          public static void ReadInputs(out int principleAmount,out double intrest, out int loanTermInYears)
         {
             Console.Write("Enter principle amount: ");
             principleAmount = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter interest(<20%): ");
-            interest = Convert.ToInt64(Console.ReadLine());
+            Console.Write("Enter intrest(<20%): ");
+            intrest = Convert.ToInt64(Console.ReadLine());
 
-            Console.Write("Enter the term in years(<30): ");
+            Console.Write("Enter the term(<30): ");
             loanTermInYears = Convert.ToInt32(Console.ReadLine());
         }
+            
+   
     }
 }

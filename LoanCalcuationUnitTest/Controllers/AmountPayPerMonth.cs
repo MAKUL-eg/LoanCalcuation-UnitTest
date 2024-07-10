@@ -1,4 +1,6 @@
-﻿namespace LoanCalcuationUnitTest.Controller
+﻿
+
+namespace LoanCalcuationUnitTest.Controller
 {
     public class AmountPayPerMonth
     {
