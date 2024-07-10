@@ -45,10 +45,12 @@ namespace LoanCalculation.UnitTest.Controllers
         [Fact]
         public void TestAmountPayPerMonth_exceptionsFact()
         {
+            //arrange
             int principalAmount = -1000;
             double annualInterestRate = 0;
             int termYear=-1;
             AmountPayPerMonth amountPayPerMonth = new();
+            //act and assert
             Assert.Throws<ArgumentException>(() => amountPayPerMonth.CalculateAmountPayPerMonth(principalAmount, annualInterestRate, termYear));
         }
     }
