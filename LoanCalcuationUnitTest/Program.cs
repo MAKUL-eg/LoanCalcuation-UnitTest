@@ -17,7 +17,7 @@ namespace LoanCalcuationUnitTest
                 Console.WriteLine("2- Calculate amount to pay per month (simple interest)");
                 Console.WriteLine("3- Exit");
                 Console.WriteLine("Enter your choice");
-      
+
 
                 try
                 {
@@ -26,9 +26,9 @@ namespace LoanCalcuationUnitTest
                     switch (choice)
                     {
                         case 1:
-                            ReadInputs(out principleAmount, out intrest, out loanTermInYears);
+                            ReadInputs(out principleAmount, out interest, out loanTermInYears);
                             InterestCalculator interestCalculator = new InterestCalculator();
-                            Console.WriteLine($"Total intrest for the principle amount {principleAmount} is {interestCalculator.CalculateTotalIntrest(principleAmount, intrest, loanTermInYears)}");
+                            Console.WriteLine($"Total intrest for the principle amount {principleAmount} is {interestCalculator.CalculateTotalIntrest(principleAmount, interest, loanTermInYears)}");
 
                             break;
                         case 2:
@@ -41,24 +41,13 @@ namespace LoanCalcuationUnitTest
                             Console.WriteLine("Invlaid choice");
                             break;
                     }
-                   
-
-              
-
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input");
+                }
             } while (true);
         }
-
-        public static void ReadInputs(out int principleAmount, out double interest, out int loanTermInYears)
-        {
-            Console.Write("Enter principle amount: ");
-            principleAmount = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Enter interest(<20%): ");
-            interest = Convert.ToInt64(Console.ReadLine());
-
-            } while (true);
-        }
-         
 
           public static void ReadInputs(out int principleAmount,out double intrest, out int loanTermInYears)
         {
