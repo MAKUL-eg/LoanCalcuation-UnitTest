@@ -5,14 +5,33 @@
         static void Main(string[] args)
         {
             int choice;
+            int principleAmount;
+            double intrest;
+            int loanTermInYears;
             do
             {
                 Console.WriteLine("----------MENU_____________");
-                Console.WriteLine("1- Calculate annual interest");
-                Console.WriteLine("2- Calculate amount to pay per month");
+                Console.WriteLine("1- Calculate interest");
+                Console.WriteLine("2- Calculate amount to pay per month (simple intrest)");
                 Console.WriteLine("3- Exit");
                 Console.WriteLine("Enter your choice");
-                choice = int.Parse(Console.ReadLine());
+                choice = Convert.ToInt32(Console.ReadLine());
+
+                try
+                {
+                    Console.Write("Enter principle amount: ");
+                    principleAmount = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Write("Enter intrest: ");
+                    intrest= Convert.ToInt64(Console.ReadLine());
+                    
+                    Console.Write("Enter the term: ");
+                    loanTermInYears = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input");
+                }
 
                 switch (choice)
                 {
