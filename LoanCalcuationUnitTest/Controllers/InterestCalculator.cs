@@ -4,8 +4,6 @@
     {
         public double CalculateTotalIntrest(int principleAmount,double intrest,int loanTermInYears)
         {
-            
-            
                 if (principleAmount < 0 || principleAmount> int.MaxValue)
                     throw new ArgumentException("Invalid");
                 if (intrest < 0 || intrest > 20)
@@ -17,6 +15,6 @@
             }
             
                 
-        }
     }
+}
 
